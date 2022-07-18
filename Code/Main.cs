@@ -10,6 +10,8 @@ using HarmonyLib;
 using UnityEngine;
 using Sokpop;
 
+
+
 namespace RichMod
 {
     [BepInPlugin(pluginGuid, pluginName, pluginVersion)]
@@ -54,7 +56,7 @@ namespace RichMod
                 __instance.MyGameCard.Child = gameCard;
                 gameCard.Parent = __instance.MyGameCard;
             }
-            AchievementManager.instance.SpecialActionComplete("sell_at_market", __instance);
+            QuestManager.instance.SpecialActionComplete("sell_at_market", __instance);
             GameCard gameCard2 = WorldManager.instance.SellCard(__instance.transform.position, child, 5f, false);
             WorldManager.instance.StackSend(gameCard2.GetRootCard(), __instance.MyGameCard);
             return false;
